@@ -83,7 +83,6 @@ export default class SwipeView extends React.Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position)
         let latitude = position.coords.latitude
         let longitude = position.coords.longitude
         let restaurantPics = []
