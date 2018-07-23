@@ -49,13 +49,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
   text: {
     color: 'maroon',
     fontSize: 30,
     textAlign: 'center'
   },
-  
   textTitle: {
     color: 'maroon',
     fontWeight: 'bold',
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
     borderColor: 'maroon',
     borderWidth: 1
   },
-
   buttonContainer: {
     backgroundColor: 'maroon',
     borderRadius: 10,
