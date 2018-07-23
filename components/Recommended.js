@@ -6,21 +6,20 @@ import config from '../config';
 import Geolocation from 'react-native-geolocation-service';
 
 export default class Recommended extends React.Component {
-
   constructor(props) {
     super(props);
-
+    
     this.state = {
       recomendedRest: this.props.props,
       recommendedRestInfo: {},
       recommendedView: true,
       loadingText: 'Loading'
     }
-    this.onPressSwipe = this.onPressSwipe.bind(this)
+    
+    this.onPressSwipe = this.onPressSwipe.bind(this);
   }
 
-  componentDidMount() {
-    
+  componentDidMount() {    
     let key = config.MY_KEY
     fetch(('https://api.yelp.com/v3/businesses/' + this.state.recomendedRest), {
       method: 'GET',
