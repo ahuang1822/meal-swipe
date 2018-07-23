@@ -25,7 +25,7 @@ export default class Home extends React.Component {
         <View style={styles.container}>
         <Text style={styles.textTitle}>Meal Swipe</Text>
         <Text></Text><Text></Text><Text></Text><Text></Text>
-          <Text style={styles.text}>Don't know where to eat?</Text>
+          <Text style={styles.text}>Not Sure Where To Eat?</Text>
           <View style={styles.buttonContainer}>
             <Button
               onPress={this.onPressButton}
