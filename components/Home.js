@@ -1,29 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
-import SwipeView from './SwipeView'
-import config from '../config'
+import SwipeView from './SwipeView';
+import config from '../config';
 
 
 export default class Home extends React.Component {
-
   constructor(props) {
     super(props);
-
-    this.state = {
-      swipeView: false,
-    }
-
-    this.onPressButton = this.onPressButton.bind(this)
+    this.state = { swipeView: false };
+    this.onPressButton = this.onPressButton.bind(this);
   }
 
   onPressButton = () => {
     this.setState(
       Object.assign({}, this.state, {
-        swipeView: true,
+        swipeView: true
       }
-      ))
+    ))
   }
-
 
   render() {
     if (!this.state.swipeView) {
@@ -57,11 +51,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
   text: {
     color: 'maroon',
     fontSize: 30,
     textAlign: 'center'
   },
+  
   textTitle: {
     color: 'maroon',
     fontWeight: 'bold',
