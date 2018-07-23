@@ -16,8 +16,7 @@ class Card extends React.Component {
       <View style={[styles.card, { backgroundColor: this.props.backgroundColor }]}>
         <Image
           style={styles.card}
-          source={{ uri: this.props.url }}
-        />
+          source={{ uri: this.props.url }} />
       </View>
     )
   }
@@ -30,13 +29,12 @@ class NoMoreCards extends React.Component {
     this.state = {
       swipeView: true,
     };
-    this.onPressHome = this.onPressHome.bind(this)
+    
+    this.onPressHome = this.onPressHome.bind(this);
   }
 
   onPressHome = () => {
-    this.setState({
-      swipeView: false
-    })
+    this.setState({ swipeView: false })
   }
 
   render() {
@@ -48,8 +46,7 @@ class NoMoreCards extends React.Component {
             <Button
               onPress={this.onPressHome}
               title="Try again!"
-              color='white'
-            />
+              color='white' />
           </View>
         </View>
       )
@@ -75,30 +72,32 @@ export default class SwipeView extends React.Component {
       latitude: "",
       longitude: ""
     };
-    this.handleYup = this.handleYup.bind(this)
-    this.handleNope = this.handleNope.bind(this)
+        
+    this.handleYup = this.handleYup.bind(this);
+    this.handleNope = this.handleNope.bind(this);
 
   }
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        let latitude = position.coords.latitude
-        let longitude = position.coords.longitude
-        let restaurantPics = []
-        let key = config.MY_KEY
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        let restaurantPics = [];
+        let key = config.MY_KEY;
+        
         fetch('https://api.yelp.com/v3/businesses/search?term=restaurants&sort_by=rating&latitude=' + latitude + '&longitude=' + longitude + '&radius=1600&limit=30', {
-        method: 'GET',
-        headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: key
-        }
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: key
+          }
         })
       .then((response) => response.json())
       .then((responseJson) => {
         let responseJsonRandom = responseJson["businesses"].slice()
-        for (var i = responseJsonRandom.length - 1; i > 0; i-- ) {
+        for (let i = responseJsonRandom.length - 1; i > 0; i-- ) {
           let j = Math.floor(Math.random() * (i + 1));
           [responseJsonRandom[i], responseJsonRandom[j]] = [responseJsonRandom[j], responseJsonRandom[i]];
         }
@@ -136,8 +135,8 @@ export default class SwipeView extends React.Component {
 
   handleYup(card) {
     if (this.state.restaurantsLiked[card.rest]) {
-      restName = card.rest.split("-").join(" ")
-      restName = restName.slice(0, restName.length - 10)
+      restName = card.rest.split("-").join(" ");
+      restName = restName.slice(0, restName.length - 10);
       this.setState({
         recommend: true,
         recommendRest: card.rest,
@@ -152,6 +151,7 @@ export default class SwipeView extends React.Component {
       this.state.firstTime = false
     }
   }
+      
   handleNope(card) {
     let newListOfPics = this.state.listOfRestaurantPics.slice()
     newListOfPics = newListOfPics.filter(function (obj) {
