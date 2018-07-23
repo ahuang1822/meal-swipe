@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import SwipeView from './SwipeView';
 import config from '../config';
 
-
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,6 @@ export default class Home extends React.Component {
     }
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
